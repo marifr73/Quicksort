@@ -34,7 +34,7 @@ void cadastro (Produtos * produto){
 }
 
 void imprime(Produto *produto){
-    printf("\n%s\t%d\t%.2f\n", produto.nome, produto.codigo, produto.preco);    
+    printf("\n%s\t%d\t%.2f\n", produto->nome, produto->codigo, produto->preco);    
 }
 
 int main(void){
