@@ -1,44 +1,53 @@
-#include <stdio.h>
-#include <stdlib.h>
+#include <stdio.h>  
+#include <stdlib.h>  
 
-typedef struct produtos{
-    char nome[20];
-    int codigo;
-    float preco;
-}Produtos;
+typedef struct produtos {  
+    char nome[20];  
+    int codigo;  
+    float preco;  
+} Produtos;  
 
-void cadastro (Produtos * produto){
-    int opcao;
-    do{
-    printf("1 - Nome\n2 - Código\n3 - Preço\n4 - Sair\n");
-    scanf("%d", &opcao);
-        switch (opcao){
-        case 1:
-            printf("Informe o nome do produto: ");
-            scanf(" %[^\n]", produto->nome);
-            getchar();
-            break;
-        case 2:
-            printf("Informe o código do produto: ");
-            scanf("%d", &produto->codigo);
-            break;
-        case 3:
-            printf("Informe o preço do produto: ");
-            scanf("%f", &produto->preco);
-            break;;
-        default:
-            printf("Código não encontrado, informe outro!\n");
-            break;
-        }
-    }while(opcao != 4); 
-}
+void cadastro(Produtos *produtos, int *numProdutos) {  
+    int opcao;  
 
-void imprime(Produto *produto){
-    printf("\n%s\t%d\t%.2f\n", produto->nome, produto->codigo, produto->preco);    
-}
+    do {  
+        printf("Escolha uma opção:\n");  
+        printf("1 - Cadastrar produto\n2 - Sair\n");  
+        scanf("%d", &opcao);  
 
-int main(void){
-    Produtos produtos;
-    cadastro(&produtos);
-    return 0;
-}
+        if (opcao == 1) {  
+            printf("Informe o nome do produto: ");  
+            scanf(" %[^\n]", produtos[*numProdutos].nome);  
+            printf("Informe o código do produto: ");  
+            scanf("%d", &produtos[*numProdutos].codigo);  
+            printf("Informe o preço do produto: ");  
+            scanf("%f", &produtos[*numProdutos].preco);  
+            (*numProdutos)++;  
+        }  
+    } while (opcao != 2);  
+}  
+
+void imprime(Produtos *produtos, int numProdutos) {  
+    int i;
+    printf("Produtos Cadastrados: \n");  
+    for (i = 0; i < numProdutos; i++) {  
+        printf("\nProduto %d:\n", i + 1);  
+        printf("Nome: %s\nCódigo: %d\nPreço: %.2f\n", produtos[i].nome, produtos[i].codigo, produtos[i].preco);  
+    }  
+}  
+
+int main(void) {
+    Produtos *produtos = malloc(sizeof(Produtos));
+    if(produtos == NULL){
+        printf("No memory!");
+        exit (1);
+    }
+
+    int numProdutos = 0; // Contador de produtos cadastrados  
+
+    cadastro(produtos, &numProdutos);  
+    imprime(produtos, numProdutos);  
+
+    free(produtos);
+    return 0;  
+}  
