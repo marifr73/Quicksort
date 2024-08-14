@@ -33,6 +33,10 @@ void cadastro (Produtos * produto){
     }while(opcao != 4); 
 }
 
+void imprime(Produto *produto){
+    printf("\n%s\t%d\t%.2f\n", produto.nome, produto.codigo, produto.preco);    
+}
+
 int main(void){
     Produtos produtos;
     cadastro(&produtos);
