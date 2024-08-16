@@ -29,7 +29,7 @@ void cadastro(Produtos *produtos, int *numProdutos) {
 
 int particiona(int estquerda, int dierita, Produtos *produtos){
     Produtos pivo = produtos[dierita];
-    int b = -1;
+    int b = esrquerda - 1;
     int a;
     for(a = estquerda; a < dierita; a++){
         if(produtos[a].nome <= pivo.nome){
