@@ -47,7 +47,7 @@ void cadastro(Produtos *produtos, int *numProdutos) {
     } while (opcao != 2);  
 }  
 
-int particiona(int esquerda, int direita, Produtos *produtos){
+int divisao(int esquerda, int direita, Produtos *produtos){
     Produtos pivo = produtos[direita];
     int b = esquerda - 1;
     int a;
@@ -77,7 +77,7 @@ void imprime(Produtos *produtos, int numProdutos) {
 
 void QuickSort(int inicio, int final, Produtos *produtos){
     if(inicio < final){
-        int pivo = particiona(inicio, final, produtos);
+        int pivo = divisao(inicio, final, produtos);
         QuickSort(inicio, pivo - 1, produtos);
         QuickSort(pivo + 1, final, produtos);
     }
