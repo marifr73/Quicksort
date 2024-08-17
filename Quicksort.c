@@ -36,6 +36,12 @@ void cadastro(Produtos *produtos, int *numProdutos) {
         scanf("%d", &opcao);  
 
         if (opcao == 1) {  
+            // Verifica se a contagem de produtos excede o limite  
+            if (*numProdutos >= 150) {  
+                printf("Limite de produtos atingido!\n");  
+                continue;  
+            }  
+
             printf("\nInforme o nome do produto: ");  
             scanf(" %[^\n]", produtos[*numProdutos].nome);  
             printf("Informe o código do produto: ");  
@@ -45,7 +51,7 @@ void cadastro(Produtos *produtos, int *numProdutos) {
             (*numProdutos)++;  
         }  
     } while (opcao != 2);  
-}  
+}
 
 int divisao(int esquerda, int direita, Produtos *produtos){
     Produtos pivo = produtos[direita];
@@ -81,4 +87,23 @@ void QuickSort(int inicio, int final, Produtos *produtos){
         QuickSort(inicio, pivo - 1, produtos);
         QuickSort(pivo + 1, final, produtos);
     }
+}
+
+void cria_arquivo(Produtos *produtos, int numProdutos) { 
+    int i;
+
+    FILE *fp = fopen("PRODUTOS.txt", "w");  
+    if(fp == NULL) {  
+        printf("O arquivo não foi criado!\n");  
+        exit(1);   
+    } else {  
+        printf("O arquivo foi criado!\n");  
+    }  
+
+    for (i = 0; i < numProdutos; i++) { 
+        fprintf(fp, "Produto %d: \n", i + 1); 
+        fprintf(fp, "Nome: %s\nCódigo: %d\nPreço: %.2f\n\n", produtos[i].nome, produtos[i].codigo, produtos[i].preco);  
+    }  
+
+    fclose(fp); // Fecha o arquivo  
 }
