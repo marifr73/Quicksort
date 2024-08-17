@@ -29,6 +29,8 @@ void imprime(Produtos *produtos, int numProdutos);
     Ordena o vetor de produtos entre os índices 'inicio' e 'final' usando recursão. */ 
 void QuickSort(int inicio, int final, Produtos *produtos);  
 
-/* Recursão: O quicksort faz chamadas recursivas para duas partes do vetor, utilizando o índice do pivô retornado pela função de partição. Isso ocorre até que todos os elementos estejam ordenados.*/
+/* Função que cria um arquivo com as informações dos produtos cadastrados.  
+   Recebe um vetor de produtos e o número total de produtos. */ 
+void cria_arquivo(Produtos *produtos, int numProdutos);
 
 #endif /* PRODUTOS */
