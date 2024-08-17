@@ -1,17 +1,37 @@
 #include <stdio.h>  
 #include <stdlib.h>  
+#include <string.h>
+#include "Quicksort.h"
 
-typedef struct produtos {  
+struct produtos {  
     char nome[20];  
     int codigo;  
     float preco;  
-} Produtos;  
+};  
+
+Produtos* alocaMemoria(int capacidade) {
+    Produtos *produtos = malloc(capacidade * sizeof(Produtos));
+    if (produtos == NULL) {
+        printf("No memory!\n");
+        exit(1);
+    }
+    return produtos;
+}
+
+Produtos* realocaMemoria(Produtos *produtos, int novaCapacidade) {
+    produtos = realloc(produtos, novaCapacidade * sizeof(Produtos));
+    if (produtos == NULL) {
+        printf("No memory!\n");
+        exit(1);
+    }
+    return produtos;
+}
 
 void cadastro(Produtos *produtos, int *numProdutos) {  
     int opcao;  
 
     do {  
-        printf("Escolha uma opção:\n");  
+        printf("\nEscolha uma opção:\n");  
         printf("1 - Cadastrar produto\n2 - Sair\n");  
         scanf("%d", &opcao);  
 
@@ -25,14 +45,14 @@ void cadastro(Produtos *produtos, int *numProdutos) {
             (*numProdutos)++;  
         }  
     } while (opcao != 2);  
-}
+}  
 
 int particiona(int estquerda, int dierita, Produtos *produtos){
     Produtos pivo = produtos[dierita];
-    int b = esrquerda - 1;
+    int b = estquerda - 1;
     int a;
     for(a = estquerda; a < dierita; a++){
-        if(produtos[a].nome <= pivo.nome){
+        if(strcmp(produtos[a].nome, pivo.nome) <= 0){
             b++;
             Produtos temp = produtos[b];
             produtos[b] = produtos[a];
@@ -61,33 +81,4 @@ void QuickSort(int inicio, int final, Produtos *produtos){
         QuickSort(inicio, pivo - 1, produtos);
         QuickSort(pivo + 1, final, produtos);
     }
-}
-
-int main(void) {
-    int capacidade = 150;
-    int numProdutos = 0; // Contador de produtos cadastrados 
-    
-    Produtos *produtos = malloc(capacidade * sizeof(Produtos));
-    if(produtos == NULL){
-        printf("No memory!");
-        exit (1);
-    }
-    
-    cadastro(produtos, &numProdutos);
-    
-    if (numProdutos > capacidade) {
-        capacidade = numProdutos;
-        produtos = realloc(produtos, capacidade * sizeof(Produtos));
-        if (produtos == NULL) {
-            printf("Sem memória disponível!\n");
-            exit(1);
-        }
-    }
-    
-    QuickSort(0, numProdutos - 1, produtos);
-    
-    imprime(produtos, numProdutos);  
-
-    free(produtos);
-    return 0;  
 }
