@@ -36,7 +36,7 @@ void cadastro(Produtos *produtos, int *numProdutos) {
         scanf("%d", &opcao);  
 
         if (opcao == 1) {  
-            printf("Informe o nome do produto: ");  
+            printf("\nInforme o nome do produto: ");  
             scanf(" %[^\n]", produtos[*numProdutos].nome);  
             printf("Informe o código do produto: ");  
             scanf("%d", &produtos[*numProdutos].codigo);  
@@ -47,22 +47,22 @@ void cadastro(Produtos *produtos, int *numProdutos) {
     } while (opcao != 2);  
 }  
 
-int particiona(int estquerda, int dierita, Produtos *produtos){
-    Produtos pivo = produtos[dierita];
-    int b = estquerda - 1;
+int particiona(int esquerda, int direita, Produtos *produtos){
+    Produtos pivo = produtos[direita];
+    int b = esquerda - 1;
     int a;
-    for(a = estquerda; a < dierita; a++){
-        if(strcmp(produtos[a].nome, pivo.nome) <= 0){
+    for(a = esquerda; a < direita; a++){
+        if(strcmp(produtos[a].nome, pivo.nome) < 0){
             b++;
             Produtos temp = produtos[b];
-            produtos[b] = produtos[a];
+            produtos[b] = produtos[a];   
             produtos[a] = temp;
         }
     }
 
     Produtos temp = produtos[b + 1];
-    produtos[b + 1] = produtos[dierita];
-    produtos[dierita] = temp;
+    produtos[b + 1] = produtos[direita];
+    produtos[direita] = temp;
     return b + 1;
 }
 
