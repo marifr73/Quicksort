@@ -1,0 +1,16 @@
+Produto 1: 
+Nome: Banana
+Código: 1
+Preço: 25.000000
+
+Produto 2: 
+Nome: Goiaba
+Código: 3
+Preço: 24.000000
+
+Produto 3: 
+Nome: Manga
+Código: 2
+Preço: 23.000000
+
+/* Recursão: O quicksort faz chamadas recursivas para duas partes do vetor, utilizando o índice do pivô retornado pela função de partição. Isso ocorre até que todos os elementos estejam ordenados.*/
