@@ -196,8 +196,7 @@ A complexidade dominante é O(n log n) devido ao QuickSort.
 
 ## Exemplificação do QuickSort
 
-![Quicksoart](![image]([https://github.com/user-attachments/assets/04fa4379-8d36-4289-89e1-1b9141985c95](https://miro.medium.com/v2/resize:fit:828/format:webp/1*5ipNWgngvSU9jnUf_SsRag.png))
-)
+[![Quicksoart](https://miro.medium.com/v2/resize:fit:828/format:webp/1*5ipNWgngvSU9jnUf_SsRag.png)](https://miro.medium.com/v2/resize:fit:828/format:webp/1*5ipNWgngvSU9jnUf_SsRag.png)
 
 1. Temos uma lista completamente desordenada;
 
