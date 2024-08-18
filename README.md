@@ -196,3 +196,10 @@ A complexidade dominante é O(n log n) devido ao QuickSort.
 
 ## Exemplificação do QuickSort
 
+![Quicksoart](<Imagem do WhatsApp de 2024-08-18 à(s) 16.21.52_75efafcd.jpg>)
+
+1. Temos uma lista completamente desordenada;
+
+2. Nesse segundo passo foi selecionado o número 13 como pivô e foi separado em duas sublistas os números menores ou iguais ao pivô à esquerda e os maiores à direita;
+
+3. Logo após é dividido em mais sublistas e pivôs foram selecionados até que só reste um elemento por sublista e assim forme uma lista ordenada.
