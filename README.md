@@ -16,8 +16,6 @@ Somos discentes da disciplina Algoritmos e Estrutura de Dados I ministrada pela 
 
 - Análise de Complexidade de Tempo
 
-- Análise de Complexidade de Espaço
-
 - Resultado do Código
 
 - Exemplificação do QuickSort
@@ -99,11 +97,13 @@ O arquivo `main.c` é o arquivo principal do programa e contém a função `main
 
 ## Análise de Complexidade de Tempo
 
+### Quicksort.c
+
 `alocaMemoria`:
 ```
 T(n) = c1 + c2 + c3 + c4
 T(n) = b
-T(n) = O(1) 
+T(n) = O(n) 
 ```
 `realocaMemoria`:
 ```
@@ -143,4 +143,56 @@ T(n) = O(n)
 T(n) = O(n) + O(n) + O(n) + O(n) + O(n) + O(n log n) + O(n)
 T(n) = O(n log n)
 ```
+### main.c
+
+```
+int capacidade = 150; // c1
+int numProdutos = 0; // c2
+Produtos *produtos = alocaMemoria(capacidade); // c3
+cadastro(produtos, &numProdutos); // c4
+
+T(n) =  n * (c1 + c2 + c3 + c4) 
+T(n) = O(n)
+```
+
+```
+capacidade = numProdutos; // c5
+produtos = realocaMemoria(produtos, capacidade); // c6
+
+T(n) = O(n)
+```
+```
+clock_t inicio = clock(); // c7
+QuickSort(0, numProdutos - 1, produtos); // c8
+clock_t fim = clock(); // c9
+double tempo_execucao = (double)(fim - inicio) / CLOCKS_PER_SEC; // c10
+
+T(n) = T(k) + T(n-k-1) + O(n)
+T(n) = 2T(n/2) + O(n)
+T(n) = O(n log n)
+
+```
+```
+imprime(produtos, numProdutos);  // c11
+
+T(n) = O(n)
+```
+```
+cria_arquivo(produtos, numProdutos); // c12
+
+T(n) = O(n)
+```
+```
+Analise Total:
+
+T(n) = c1 + c2 + c3 + n(c4 + c11 + c12) + O(n log n)
+T(n) = O(n log n)
+A complexidade dominante é O(n log n) devido ao QuickSort.
+```
+
+## Resultado do código
+
+ Teremos como resultado do código a ordenação dos produtos pelos nomes fornecidos.
+
+## Exemplificação do QuickSort
 
