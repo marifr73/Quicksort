@@ -1,0 +1,15 @@
+Produto 1: 
+Nome: Banana
+Código: 32
+Preço: 32.00
+
+Produto 2: 
+Nome: Pessego
+Código: 324
+Preço: 42.00
+
+Produto 3: 
+Nome: Suco
+Código: 1234
+Preço: 42.00
+

@@ -28,14 +28,14 @@ Produtos* realocaMemoria(Produtos *produtos, int novaCapacidade) {
 }
 
 void cadastro(Produtos *produtos, int *numProdutos) {  
-    int opcao;  
+    char opcao;  
 
     do {  
         printf("\nEscolha uma opção:\n");  
         printf("1 - Cadastrar produto\n2 - Sair\n");  
-        scanf("%d", &opcao);  
-
-        if (opcao == 1) {  
+        scanf(" %c", &opcao);  
+        getchar();
+        if (opcao == '1') {  
             // Verifica se a contagem de produtos excede o limite  
             if (*numProdutos >= 150) {  
                 printf("Limite de produtos atingido!\n");   
@@ -50,11 +50,11 @@ void cadastro(Produtos *produtos, int *numProdutos) {
             (*numProdutos)++;  
         }  
 
-        else if(opcao < 1 || opcao > 2) {
+        else if(opcao < '1' || opcao > '2') {
             printf("Opção não cadastrada, por favor selecione outro número!\n");
         }
 
-    } while (opcao != 2);  
+    } while (opcao != '2');  
 }
 
 int divisao(int esquerda, int direita, Produtos *produtos){
