@@ -38,8 +38,7 @@ void cadastro(Produtos *produtos, int *numProdutos) {
         if (opcao == 1) {  
             // Verifica se a contagem de produtos excede o limite  
             if (*numProdutos >= 150) {  
-                printf("Limite de produtos atingido!\n");  
-                continue;  
+                printf("Limite de produtos atingido!\n");   
             }  
 
             printf("\nInforme o nome do produto: ");  
@@ -50,6 +49,11 @@ void cadastro(Produtos *produtos, int *numProdutos) {
             scanf("%f", &produtos[*numProdutos].preco);  
             (*numProdutos)++;  
         }  
+
+        else if(opcao < 1 || opcao > 2) {
+            printf("Opção não cadastrada, por favor selecione outro número!\n");
+        }
+
     } while (opcao != 2);  
 }
 
