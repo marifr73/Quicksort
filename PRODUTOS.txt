@@ -1,14 +1,19 @@
 Produto 1: 
-Nome: Banana
+Nome: Arroz
 Código: 1
-Preço: 25.000000
+Preço: 10.00
 
 Produto 2: 
-Nome: Goiaba
+Nome: Café
 Código: 3
-Preço: 24.000000
+Preço: 9.00
 
 Produto 3: 
-Nome: Manga
+Nome: Feijão
 Código: 2
-Preço: 23.000000
+Preço: 8.00
+
+Produto 4: 
+Nome: Macarrão
+Código: 4
+Preço: 5.00
