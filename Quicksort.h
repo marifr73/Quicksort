@@ -17,7 +17,7 @@ Produtos* realocaMemoria(Produtos *produtos, int novaCapacidade);
 void cadastro(Produtos *produtos, int *numProdutos);  
 
 /* Função que divide o vetor de produtos com base no critério de ordenação (nomes dos produtos).  
-    Utiliza o último elemento como pivô e organiza os produtos no vetor.  
+    Utiliza o último elemento como pivô e organiza os produtos no vetor.
     Retorna o índice do pivô após a divisão. */
 int divisao(int esquerda, int direita, Produtos *produtos);  
 

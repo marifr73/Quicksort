@@ -1,8 +1,8 @@
 #include <stdio.h>  
-#include <stdlib.h>  
-#include <string.h>
-#include <time.h>
-#include "Quicksort.h"
+#include <stdlib.h> 
+#include <string.h> 
+#include <time.h> 
+#include "Quicksort.h" 
 
 int main(void) {
     int capacidade = 150; // Capacidade de produtos
